@@ -52,7 +52,7 @@ def load_dset(
     def preprocess(batch) -> VqVaeBatch:
         return {
             "image": np.array(
-                [process_image(img, resize_shape) for img in batch["image"]]
+                [process_image(img, resize_shape) for img in batch["img"]]
             ),
             "label": np.array(batch["label"]),
         }

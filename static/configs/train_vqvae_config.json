@@ -9,7 +9,7 @@
     "commitment_loss": 0.25,
     "train_dset_percentage": 100,
     "test_dset_percentage": 100,
-    "train_steps": 1000,
+    "train_steps": 10000,
     "test_steps": 50,
     "test_every": 250,
     "train_batch_size": 64,
