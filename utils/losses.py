@@ -3,6 +3,8 @@ import jax.nn as nn
 
 
 def mse(y, y_pred):
+    print("y"+y)
+    print("y_pred"+y_pred)
     return jnp.mean((y - y_pred) ** 2)
 
 

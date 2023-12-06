@@ -86,7 +86,7 @@ class VqVaeTrainer:
         return hk.multi_transform_with_state(f)
 
     def initial_state(self, rng: KeyArray, batch: VqVaeBatch) -> VqVaeState:
-        params, state = self.init(rng, batch["image"], is_training=True)
+        params, state = self.init(rng, batch["image"], is_training=True)     # call before one init()
         opt_state = self.optimizer.init(params)
         return VqVaeState(params, state, opt_state)
 
