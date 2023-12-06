@@ -14,7 +14,7 @@ from utils.annotations import VqVaeBatch, GPTBatch
 def process_image(img, shape: tuple[int, int]) -> np.ndarray:
     img = np.array(img, dtype=np.float32) / 255
     img = resize(img, shape)
-    img = img[..., None]
+    #img = img[..., None]
     return img
 
 

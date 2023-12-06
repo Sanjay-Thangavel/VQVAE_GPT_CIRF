@@ -1,7 +1,7 @@
 {
     "seed": 23,
     "dataset": "cifar10",
-    "resize_shape": [40, 40],
+    "resize_shape": [50, 50],
     "K": 256,
     "D": 128,
     "compression_level": 3,
