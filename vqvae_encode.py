@@ -14,7 +14,7 @@ from utils.annotations import VqVaeConfig, VqVaeState
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Encode the MNIST dataset with a VQ-VAE.",
+        description="Encode the CIFAR10 dataset with a VQ-VAE.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
@@ -82,7 +82,7 @@ def main(path: str, out_path: str, batch_size: int, percentage: int):
 
     def encode(batch):
         images = np.array(
-            [process_image(img, shape=config.resize_shape) for img in batch["image"]]
+            [process_image(img, shape=config.resize_shape) for img in batch["img"]]
         )
         result, (z1, z2) = infer(vqvae_state, images)
         batch["encoding_indices"] = np.array(result["encoding_indices"])
@@ -98,7 +98,7 @@ def main(path: str, out_path: str, batch_size: int, percentage: int):
     out_dir = Path(out_path)
     out_dir.mkdir(parents=True, exist_ok=True)
     for split in ("train", "test"):
-        dset = datasets.load_dataset("mnist", split=f"{split}[:{percentage}%]")
+        dset = datasets.load_dataset("cifar10", split=f"{split}[:{percentage}%]")
         dset = dset.map(encode, batched=True, batch_size=batch_size)
         dset.save_to_disk(str(out_dir / split))
 
