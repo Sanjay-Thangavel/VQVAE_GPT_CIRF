@@ -15,7 +15,8 @@ def process_image(img, shape: tuple[int, int]) -> np.ndarray:
     img = np.array(img, dtype=np.float32) / 255
     img = resize(img, shape)
     #img = img[..., None]
-    print("image shape :"+img.shape)
+    #print("image shape :")
+    #print(img.shape)
     return img
 
 
