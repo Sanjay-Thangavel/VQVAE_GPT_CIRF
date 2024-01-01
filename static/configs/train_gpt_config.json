@@ -6,7 +6,7 @@
     "dropout_rate": 0.1,
     "vqvae_config": "runs/vqvae/exp0/config.json",
     "vqvae_state": "runs/vqvae/exp0/train_state.pkl",
-    "train_steps": 25000,
+    "train_steps": 60000,
     "test_steps": 20,
     "test_every": 250,
     "train_dataset": "datasets/exp0-encoded/train",

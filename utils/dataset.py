@@ -7,6 +7,8 @@ import numpy as np
 import datasets
 from datasets.arrow_dataset import Dataset
 from skimage.transform import resize
+from skimage.color import rgb2gray
+
 
 from utils.annotations import VqVaeBatch, GPTBatch
 
@@ -15,9 +17,11 @@ def process_image(img, shape: tuple[int, int]) -> np.ndarray:
     img = np.array(img, dtype=np.float32) / 255
     img = resize(img, shape)
     #img = img[..., None]
-    #print("image shape :")
-    #print(img.shape)
-    return img
+    # print("image shape :")
+    # print(img.shape)
+    img_gray = rgb2gray(img)
+    img_gray = np.expand_dims(img_gray, axis=-1)
+    return img_gray
 
 
 def load_dset(
